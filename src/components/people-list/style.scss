@@ -1,0 +1,9 @@
+.scroll-box-outer {
+  position: relative;
+  overflow-y: scroll;
+
+  > .scroll-box-inner {
+    position: absolute;
+    width: 100%;
+  }
+}
