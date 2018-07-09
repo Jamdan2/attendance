@@ -1,7 +1,8 @@
 import { actionTypes } from './actions';
 import { combineReducers } from 'redux';
 
-export default combineReducers({
+// noinspection JSUnusedGlobalSymbols
+const reducers = {
 	amtOfPeople: (state = 0, action) => {
 		switch (action.type) {
 			case actionTypes.ADD_PERSON:
@@ -37,7 +38,7 @@ export default combineReducers({
 						: person
 				);
 			}
-			case actionTypes.ADD_HOURS: {
+			case actionTypes.UPDATE_HOURS: {
 				return state.map(person =>
 					(person.id === action.id)
 						? { ...person, hours: person.hours + action.hours }
@@ -47,5 +48,25 @@ export default combineReducers({
 			default:
 				return state;
 		}
+	},
+	signInBarValue: (state = '', action) => {
+		switch (action.type) {
+			case actionTypes.UPDATE_SIGN_IN_BAR_VALUE:
+				return action.value;
+			default:
+				return state;
+		}
+	},
+	signInBarPerson: (state = null, action) => {
+		switch (action.type) {
+			case actionTypes.UPDATE_SIGN_IN_BAR_PERSON:
+				return action.person;
+			default:
+				return state;
+		}
 	}
-});
+};
+
+const reducer = combineReducers(reducers);
+
+export default reducer;
