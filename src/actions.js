@@ -14,15 +14,3 @@ export const actionCreators = {
 	updateSignInBarValue: (value) => ({ type: actionTypes.UPDATE_SIGN_IN_BAR_VALUE, value }),
 	updateSignInBarPerson: (person) => ({ type: actionTypes.UPDATE_SIGN_IN_BAR_PERSON, person })
 };
-
-export const addPerson = (id, name) => ({ type: actionTypes.ADD_PERSON, id, name });
-
-export const signIn = (id) => ({ type: actionTypes.SIGN_IN, id });
-
-export const signOut = (id) => ({ type: actionTypes.SIGN_OUT, id });
-
-export const updateHours = (id, hours) => ({ type: actionTypes.UPDATE_HOURS, id, hours });
-
-export const updateSignInBarValue = (value) => ({ type: actionTypes.UPDATE_SIGN_IN_BAR_VALUE, value });
-
-export const updateSignInBarPerson = (person) => ({ type: actionTypes.UPDATE_SIGN_IN_BAR_PERSON, person });
