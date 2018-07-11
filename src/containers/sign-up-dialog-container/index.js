@@ -12,8 +12,8 @@ const mapDispatchToProps = (dispatch) => (bindActionCreators(actionCreators, dis
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => ({
 	...stateProps,
-	updateSignUpDialogName: () => dispatchProps.updateSignUpDialogName(stateProps.name),
-	updateSignUpDialogId: () => dispatchProps.updateSignUpDialogId(stateProps.id),
+	updateSignUpDialogName: (event) => dispatchProps.updateSignUpDialogName(event.target.value),
+	updateSignUpDialogId: (event) => dispatchProps.updateSignUpDialogId(event.target.value),
 	onSubmit: () => dispatchProps.addPerson(stateProps.id, stateProps.name),
 	dialogRef: ownProps.dialogRef
 });

@@ -10,7 +10,6 @@ import 'preact-material-components/TextField/style.css';
 import style from './style.scss';
 
 class Main extends Component {
-	// TODO created person has no name!?
 	openSignUpDialog = () => this.signUpDialog.MDComponent.show();
 
 	render({ people }) {
