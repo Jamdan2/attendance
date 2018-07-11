@@ -26,21 +26,21 @@ const reducers = {
 				];
 			case actionTypes.SIGN_IN: {
 				return state.map(person =>
-					(person.id === action.id)
+					person.id === action.id
 						? { ...person, signedIn: true, signedInAt: new Date().getTime() }
 						: person
 				);
 			}
 			case actionTypes.SIGN_OUT: {
 				return state.map(person =>
-					(person.id === action.id)
+					person.id === action.id
 						? { ...person, hours: person.hours + (new Date().getTime() - person.signedInAt), signedIn: false, signedInAt: null }
 						: person
 				);
 			}
 			case actionTypes.UPDATE_HOURS: {
 				return state.map(person =>
-					(person.id === action.id)
+					person.id === action.id
 						? { ...person, hours: person.hours + action.hours }
 						: person
 				);
@@ -61,6 +61,22 @@ const reducers = {
 		switch (action.type) {
 			case actionTypes.UPDATE_SIGN_IN_BAR_PERSON:
 				return action.person;
+			default:
+				return state;
+		}
+	},
+	signUpDialogName: (state = '', action) => {
+		switch (action.type) {
+			case actionTypes.UPDATE_SIGN_UP_DIALOG_NAME:
+				return action.name;
+			default:
+				return state;
+		}
+	},
+	signUpDialogId: (state = '', action) => {
+		switch (action.type) {
+			case actionTypes.UPDATE_SIGN_UP_DIALOG_ID:
+				return action.id;
 			default:
 				return state;
 		}
