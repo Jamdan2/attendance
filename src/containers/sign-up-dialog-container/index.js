@@ -5,7 +5,8 @@ import SignUpDialog from '../../components/sign-up-dialog';
 
 const mapStateToProps = (state) => ({
 	name: state.signUpDialogName,
-	id: state.signUpDialogId
+	id: state.signUpDialogId,
+	signInBarValue: state.signInBarValue
 });
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators(actionCreators, dispatch));
