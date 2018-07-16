@@ -1,16 +1,18 @@
 import { Component } from 'preact';
 import { connect } from 'preact-redux';
+import { actionCreators } from '../../actions';
 import LayoutGrid from 'preact-material-components/LayoutGrid';
 import PeopleList from '../../components/people-list';
 import SignInBarContainer from '../../containers/sign-in-bar-container';
 import SignUpDialogContainer from '../../containers/sign-up-dialog-container';
 import 'preact-material-components/LayoutGrid/style.css';
-import 'preact-material-components/Dialog/style.css';
-import 'preact-material-components/TextField/style.css';
 import style from './style.scss';
 
 class Main extends Component {
-	openSignUpDialog = () => this.signUpDialog.MDComponent.show();
+	openSignUpDialog = () => {
+		this.props.updateSignUpDialogId(this.props.signInBarValue);
+		this.signUpDialog.MDComponent.show();
+	};
 
 	render({ people }) {
 		return (
@@ -32,5 +34,11 @@ class Main extends Component {
 }
 
 export default connect(
-	state => ({ people: state.people })
+	state => ({
+		people: state.people,
+		signInBarValue: state.signInBarValue
+	}),
+	dispatch => ({
+		updateSignUpDialogId: (id) => dispatch(actionCreators.updateSignUpDialogId(id))
+	})
 )(Main);
