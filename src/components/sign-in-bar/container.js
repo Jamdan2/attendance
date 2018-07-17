@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'preact-redux';
 import { actionCreators } from '../../actions';
-import SignInBar from '../../components/sign-in-bar';
+import SignInBarPresentation from './presentation';
 
 const mapStateToProps = (state) => ({
 	people: state.people,
@@ -36,6 +36,6 @@ const mergeProps = (stateProps, dispatchProps, { openSignUpDialog }) => ({
 	}
 });
 
-const SignInBarContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(SignInBar);
+const SignInBarContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(SignInBarPresentation);
 
 export default SignInBarContainer;
