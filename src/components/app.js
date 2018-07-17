@@ -1,7 +1,7 @@
 import { Component } from 'preact';
 import { Router } from 'preact-router';
-import Header from './header';
-import Main from '../routes/main';
+import Header from './Header';
+import Main from '../routes/Main';
 
 export default class App extends Component {
 	handleRoute = e => {

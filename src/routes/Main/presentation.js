@@ -1,8 +1,8 @@
 import { Component } from 'preact';
 import LayoutGrid from 'preact-material-components/LayoutGrid';
-import PeopleList from '../../components/people-list';
-import SignInBarContainer from '../../containers/sign-in-bar-container';
-import SignUpDialog from '../../components/sign-up-dialog';
+import PeopleList from '../../components/PeopleList';
+import SignInBar from '../../components/SignInBar';
+import SignUpDialog from '../../components/SignUpDialog';
 import 'preact-material-components/LayoutGrid/style.css';
 import style from './style.scss';
 
@@ -21,7 +21,7 @@ class MainPresentation extends Component {
 							<PeopleList {...{ people }} />
 						</LayoutGrid.Cell>
 						<LayoutGrid.Cell desktopCols="8" style={{ height: '100%' }}>
-							<SignInBarContainer openSignUpDialog={this.openSignUpDialog} />
+							<SignInBar openSignUpDialog={this.openSignUpDialog} />
 						</LayoutGrid.Cell>
 					</LayoutGrid.Inner>
 				</LayoutGrid>
