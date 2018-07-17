@@ -2,7 +2,7 @@ import { Component } from 'preact';
 import LayoutGrid from 'preact-material-components/LayoutGrid';
 import PeopleList from '../../components/people-list';
 import SignInBarContainer from '../../containers/sign-in-bar-container';
-import SignUpDialogContainer from '../../containers/sign-up-dialog-container';
+import SignUpDialog from '../../components/sign-up-dialog';
 import 'preact-material-components/LayoutGrid/style.css';
 import style from './style.scss';
 
@@ -26,7 +26,7 @@ class MainPresentation extends Component {
 					</LayoutGrid.Inner>
 				</LayoutGrid>
 				{/* eslint-disable-next-line */}
-				<SignUpDialogContainer dialogRef={e => this.signUpDialog = e} />
+				<SignUpDialog dialogRef={e => this.signUpDialog = e} />
 			</div>
 		);
 	}
