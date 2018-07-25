@@ -13,7 +13,13 @@ export default ({ people }) => (
 						<List.Item two-line>
 							<List.TextContainer>
 								<List.PrimaryText>{person.name}</List.PrimaryText>
-								<List.SecondaryText>You have {person.hours} hrs.</List.SecondaryText>
+								<List.SecondaryText>
+									You have
+									{person.counter.hours < 10 ? ' 0' + person.counter.hours : ' ' + person.counter.hours}
+									:{person.counter.minutes < 10 ? '0' + person.counter.minutes : person.counter.minutes}
+									:{person.counter.seconds < 10 ? '0' + person.counter.seconds + ' ' : person.counter.seconds + ' '}
+									hrs.
+								</List.SecondaryText>
 							</List.TextContainer>
 						</List.Item>
 						{i !== people.length - 1 ? <List.Divider /> : null}

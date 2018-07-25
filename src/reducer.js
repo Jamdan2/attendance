@@ -19,9 +19,12 @@ const reducers = {
 					{
 						id: action.id,
 						name: action.name,
-						hours: 0,
-						signedIn: false,
-						signedInAt: null
+						counter: {
+							hours: 0,
+							minutes: 0,
+							seconds: 0
+						},
+						signedIn: true
 					}
 				];
 			case actionTypes.SIGN_IN: {
@@ -34,15 +37,19 @@ const reducers = {
 			case actionTypes.SIGN_OUT: {
 				return state.map(person =>
 					person.id === action.id
-						? { ...person, hours: person.hours + (new Date().getTime() - person.signedInAt), signedIn: false, signedInAt: null }
+						? { ...person, signedIn: false }
 						: person
 				);
 			}
-			case actionTypes.UPDATE_HOURS: {
+			case actionTypes.TICK: {
 				return state.map(person =>
-					person.id === action.id
-						? { ...person, hours: person.hours + action.hours }
-						: person
+					person.signedIn
+						 ? person.counter.seconds === 59
+							? person.counter.minutes === 59
+								? { ...person, counter: { ...person.counter, seconds: 0, minutes: 0, hours: person.counter.hours + 1 } }
+								: { ...person, counter: { ...person.counter, seconds: 0, minutes: person.counter.minutes + 1 } }
+							: { ...person, counter: { ...person.counter, seconds: person.counter.seconds + 1 } }
+						 : person
 				);
 			}
 			default:
