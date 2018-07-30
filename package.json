@@ -10,9 +10,12 @@
     "dev": "webpack-dev-server"
   },
   "devDependencies": {
+    "css-loader": "^1.0.0",
     "if-env": "^1.0.4",
+    "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
     "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
     "ts-loader": "^4.4.2",
     "typescript": "^2.9.2",
     "webpack": "^4.16.3",

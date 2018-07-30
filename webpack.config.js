@@ -10,7 +10,6 @@ module.exports = {
 	devtool: 'source-map',
 	devServer: {
 		contentBase: path.join(__dirname, 'public'),
-		compress: true,
 		port: 8080,
 		watchContentBase: true
 	},
@@ -20,6 +19,7 @@ module.exports = {
 	module: {
 		rules: [
 			{ test: /\.(ts|tsx)?$/, loader: 'ts-loader' },
+			{ test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
 			{ enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
 		]
 	}
