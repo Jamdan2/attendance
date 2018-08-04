@@ -1,7 +1,12 @@
 import { h } from 'preact';
+import { Router } from 'preact-router';
+
+import { Home } from "../routes/Home";
 
 export const App = () => (
     <div id="app">
-        <h1>Here is my app!</h1>
+        <Router>
+            <Home path="/" />
+        </Router>
     </div>
 );
