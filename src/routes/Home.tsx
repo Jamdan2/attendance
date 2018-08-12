@@ -1,13 +1,13 @@
 import { h } from 'preact';
 import LayoutGrid from 'preact-material-components/LayoutGrid';
-import {PeopleList} from "../components/PeopleList";
+import { PeopleListContainer } from "../containers/PeopleListContainer";
 
 export const Home = (props: HomeProps) => (
     <div id="home">
         <LayoutGrid>
             <LayoutGrid.Inner>
                 <LayoutGrid.Cell desktopCols={4}>
-                    <PeopleList people={[]}/>
+                    <PeopleListContainer />
                 </LayoutGrid.Cell>
             </LayoutGrid.Inner>
         </LayoutGrid>
